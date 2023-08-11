@@ -1,0 +1,891 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap');
+@media all {
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: 'Outfit', sans-serif;
+    }
+    body {
+        color: #272727;
+        background: #fff;
+        font-size: .8125rem;
+    }
+    .hasItlTopbar {
+        padding-top: 50px;
+    }
+    body,
+    html {
+        height: 100%;
+        width: 100%
+    }
+    input[type=checkbox] {
+        border-color: rgb(59, 52, 99);
+    }
+    .bgGray {
+        background: #f3f3f3;
+        padding: 65px 0
+    }
+    a {
+        text-decoration: none;
+        outline: 0 none
+    }
+    .fL {
+        float: left
+    }
+    .fR {
+        float: right
+    }
+    .textCenter {
+        text-align: center
+    }
+    .textRight {
+        text-align: right
+    }
+    .textLeft {
+        text-align: left
+    }
+    .clearfix:after {
+        content: "";
+        clear: both;
+        display: block
+    }
+    .weight400 {
+        font-weight: 400;
+    }
+    .weight600 {
+        font-weight: 600;
+    }
+    .weight700 {
+        font-weight: 600;
+    }
+    .weight800 {
+        font-weight: 800;
+    }
+    .weight900 {
+        font-weight: 800;
+    }
+    .flexAuto {
+        -ms-flex: auto;
+        flex: auto
+    }
+    .flex_1,
+    .flexAuto {
+        -webkit-box-flex: 1
+    }
+    .flex_1 {
+        -ms-flex: 1;
+        flex: 1
+    }
+    .txtSm {
+        font-size: .74rem
+    }
+    .orange {
+        color: #ffab15
+    }
+    .red {
+        color: #ff7c5c
+    }
+    .purple {
+        color: #8e47e1
+    }
+    .darkBlue {
+        color: #272727
+    }
+    .rightMarginSm {
+        margin-right: 5px
+    }
+    .rightMarginMd {
+        margin-right: 10px
+    }
+    .leftMarginSm {
+        margin-left: 5px
+    }
+    .leftMarginMd {
+        margin-left: 10px
+    }
+    .vAlignMiddle {
+        vertical-align: middle
+    }
+    .itlFormTextArea {
+        border: 1px solid #e0e0ea;
+        background: #fff;
+        padding: 0 10px;
+        min-width: 100%;
+        outline: 0 none;
+        min-height: 32px;
+        border-radius: 5px;
+        resize: both;
+    }
+    .itlFormInput {
+        border: 1px solid #e0e0ea;
+        background: #fff;
+        padding: 0 10px;
+        width: 100%;
+        outline: 0 none;
+        height: 32px;
+        border-radius: 5px;
+    }
+    .itlFormInput.lg {
+        height: 36px;
+    }
+    .itlFormInput.sm {
+        height: 28px;
+        border-radius: 3px;
+    }
+    .itlFormInput:focus,
+    .itlDropdownSelected:active {
+        border-color: #4c4d4f;
+    }
+    .itlFormInputGroup {
+        display: flex;
+    }
+    .itlFormInputGroup .itlFormInput {
+        border-radius: 5px 0 0 5px;
+    }
+    .itlFormInputGroupAddon {
+        border: 1px solid #e0e0ea;
+        background: #fff;
+        outline: 0 none;
+        height: 32px;
+        border-radius: 0 5px 5px 0;
+        border-left: 0;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+    }
+    .itlFormInputGroup.lg {
+        height: 36px;
+    }
+    .itlDropdown {
+        position: relative;
+    }
+    .itlDropdownSelected {
+        border: 1px solid #e0e0ea;
+        background: #fff;
+        padding: 7px 25px 7px 10px;
+        width: 100%;
+        outline: 0 none;
+        height: 36px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    .itlDropdownSelected:after {
+        /*content: "";
+        border: 5px solid transparent;
+        border-top: 5px solid #f35a38;
+        position: absolute;
+        right: 10px;
+        top: 25px;
+        background: transparent;
+        width: auto;*/
+    }
+    .itlDropdownList {
+        display: none;
+        position: absolute;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #f1eef5;
+        -webkit-box-shadow: 10px 10px 10px #e3ddea;
+        box-shadow: 10px 10px 10px #e3ddea;
+        top: 100%;
+        width: 100%;
+        min-width: 250px;
+        z-index: 99999999;
+    }
+    .toRight .itlDropdownList {
+        right: 0;
+    }
+    .itlDropdownList:before {
+        content: "";
+        border: 5px solid transparent;
+        border-bottom: 5px solid #d4d4d4;
+        position: absolute;
+        top: -11px;
+        left: 10px;
+        right: inherit;
+    }
+    .itlDropdownList:after {
+        content: "";
+        border: 5px solid transparent;
+        border-bottom: 5px solid #fff;
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        right: inherit;
+    }
+    .toRight .itlDropdownList:before {
+        left: inherit;
+        right: 10px;
+    }
+    .toRight .itlDropdownList:after {
+        left: inherit;
+        right: 10px;
+    }
+    .itlDropdownSearchWrap {
+        padding: 0 0 0 34px;
+        position: relative;
+        margin-bottom: 5px;
+        background: #f3f3f3;
+        border-radius: 5px;
+    }
+    .itlDropdownSearchWrap .searchIcon {
+        width: 16px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .itlDropdownSearchWrap .itlDropdownSearchInput {
+        border: 0 none;
+        height: 35px;
+        width: 100%;
+        outline: 0 none;
+        background: transparent;
+    }
+    .itlDropdownList>ul {
+        max-height: 250px;
+        overflow: auto;
+    }
+    .itlDropdownList li {
+        display: block;
+    }
+    .itlDropdownList li>a {
+        cursor: pointer;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 7px 15px;
+        text-decoration: none;
+        color: #272727;
+        border-radius: 5px;
+        text-align: left;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .itlDropdownList li>a>.itlDropdownListIcon {
+        width: 16px;
+        margin-right: 6px;
+    }
+    .itlDropdownList li>a img.dropdownAppIcon {
+        max-width: 20px;
+        margin-right: 10px;
+    }
+    .itlDropdownList li>a:hover {
+        background: #fff9ef;
+        color: #e5980f;
+    }
+    .itlBuilderPageLayout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    .itlBuilderNavbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 25px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 9;
+    }
+    .searchAppContainer .searchBtn {
+        background: #f35a38;
+        border-color: #f35a38;
+        font-weight: 600;
+    }
+    .itlBuilderPageContainer {
+        display: flex;
+        width: 100%;
+        flex: 1;
+        overflow: auto;
+    }
+    .itlBuilderPageSidebar {
+        width: 250px;
+        padding: 15px;
+        overflow: auto;
+        height: calc(100vh - 56px);
+    }
+    .itlBuilderPageSidebarMenu>a {
+        width: 100%;
+        background: #f5f5f5;
+        color: #272727;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        position: relative;
+    }
+    .itlBuilderPageSidebarMenu>a .itlBuilderPageSidebarMenuTxt {
+        display: flex;
+        flex: 1;
+        padding: 10px;
+        align-items: center;
+    }
+    .newMenuBtn {
+        display: flex;
+        width: 34px;
+        height: 34px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .itlBuilderPageSidebarMenu>a svg {
+        width: 20px;
+    }
+    .itlBuilderPageSidebarMenu>a.active {
+        background: #f35a38;
+        color: #fff;
+    }
+    .itlBuilderPageSidebarMenu>a.active svg path {
+        fill: #fff !important;
+    }
+    .newAppBtnWrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    .newAppBtn {
+        width: 72px;
+        height: 72px;
+        border-radius: 100%;
+        background: #10a753;
+        border: 0;
+        outline: 0 none;
+        cursor: pointer;
+        animation: 2s ease 0s infinite normal none running pulse;
+    }
+    .itlBuilderPageSection {
+        flex: 1;
+        overflow: auto;
+        padding: 35px;
+        height: calc(100vh - 56px);
+    }
+    .itlBuilderHeader {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .itlBuilderHeaderActions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .itlBuilderHeader .btn {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .itlBuilderHeaderTitle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .itlFormRow {
+        padding-bottom: 15px;
+    }
+    .itlFormRow.noBtmSpace {
+        padding-bottom: 0;
+        ;
+    }
+    .itlFormRow.inline {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .itlFormRow.inline .itlFormInputWrap {
+        margin: 10px 0;
+        width: 200px;
+    }
+    .itlFormRow.inline .itlFormInputWrap+.itlFormInputWrap {
+        margin-left: 15px;
+    }
+    .itlFormRow.hasCol {
+        justify-content: space-between;
+        display: flex;
+    }
+    .itlFormInputLabel {
+        padding-bottom: 5px;
+    }
+    .itlAccordian {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        padding: 10px 0;
+        border-bottom: 1px solid #e0e0ea;
+        cursor: pointer;
+    }
+    .itlAccordian.active {
+        color: #f35a38;
+        border-bottom: 0 none;
+    }
+    .itlAccordian.active .itlAccIcon {
+        transform: rotate(90deg);
+    }
+    .itlAccordianContent {
+        padding: 0 0px 15px 0;
+        display: none;
+    }
+    .itlAccordian.active+.itlAccordianContent {
+        display: block;
+    }
+    table.itlTableStyle th {
+        background: whitesmoke;
+        text-transform: uppercase;
+        padding: 7px;
+        border-bottom: 1px solid #e0e0ea;
+        text-align: left;
+        font-size: 0.67rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    table.itlTableStyle td {
+        padding: 7px;
+        border-bottom: 1px solid #e0e0ea;
+        text-align: left;
+    }
+    table.itlTableStyle .itlTableActions a {
+        margin: 0 5px;
+    }
+    table.itlTableStyle tr:last-child td {
+        border-bottom: 0 none;
+    }
+    .addFieldsBtn {
+        height: 32px;
+        padding: 0 15px;
+        background: #ffffff;
+        color: #10a753;
+        font-weight: 600;
+        border-radius: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        border: 1px solid #10a753;
+    }
+    .apiURL {
+        flex: 1;
+        margin-left: 10px;
+    }
+    .sendBtn {
+        border: 1px solid #f35a38;
+        padding: 7px 10px;
+        width: 100%;
+        outline: 0 none;
+        height: 36px;
+        border-radius: 0 5px 5px 0;
+        justify-content: center;
+        background: #f35a38;
+        font-weight: 600;
+        color: #fff;
+        min-width: 80px;
+        cursor: pointer;
+    }
+    .apiURL .itlFormInput {
+        border-radius: 5px 0 0 5px;
+    }
+    .itlTabsContainer {
+        border: 1px solid #e0e0ea;
+        border-radius: 5px;
+    }
+    .itlTabs {
+        border-bottom: 1px solid #e0e0ea;
+    }
+    .itlTabs>a {
+        display: inline-flex;
+        height: 36px;
+        align-items: center;
+        padding: 0 15px;
+        color: #272727;
+        position: relative;
+    }
+    .itlTabs>a.active {
+        font-weight: 600;
+    }
+    .itlTabs>a.active:before {
+        content: '';
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #f35a38;
+        position: absolute;
+    }
+    .itlTabsContent {
+        padding: 25px;
+    }
+    .itlTabPanel {
+        display: none;
+    }
+    .itlTabPanel.active {
+        display: block;
+    }
+    .itlTabsContainer.lg {
+        border: 0 none;
+    }
+    .itlTabsContainer.lg>.itlTabsContent {
+        padding: 25px 0;
+    }
+    .centeredContiner {
+        max-width: 1075px;
+        margin: 0 auto;
+    }
+    .btnWrap {
+        display: flex;
+        padding-top: 15px;
+    }
+    .btnWrap .btn+.btn {
+        margin-left: 15px;
+    }
+    .itlTabsContainer.lg>.itlTabs {
+        padding: 0 15px;
+        font-size: 1rem;
+    }
+    textarea.editor {
+        width: 100%;
+        background: #272727;
+        min-height: 120px;
+        font-family: monospace;
+        color: #fff;
+        padding: 15px;
+    }
+    ul.triggerActionList {
+        padding-left: 15px;
+        margin-bottom: 15px;
+    }
+    ul.triggerActionList>li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e0e0ea;
+    }
+    ul.triggerActionList>li .triggerActionListTxt {
+        padding: 10px 10px;
+        flex: 1;
+        cursor: pointer;
+    }
+    ul.triggerActionList>li:last-child {
+        border-bottom: 0 none;
+    }
+    ul.triggerActionList>li .cloneBtn {
+        display: none;
+        width: 24px;
+        height: 24px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    ul.triggerActionList>li:hover .cloneBtn {
+        display: flex;
+    }
+    ul.triggerActionList>li.active {
+        color: #f35a38;
+    }
+    .tabPanelTopBar {
+        font-size: 0.68rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+    .tabPanelTopBar a {
+        color: #f35a38;
+    }
+    .itlRadioGroup {
+        display: flex;
+        align-items: center;
+    }
+    .itlRadioGroup>label {
+        display: inline-flex;
+        align-items: center;
+    }
+    .itlRadioGroup>label+label {
+        margin-left: -1px;
+    }
+    .itlRadioGroup>label>input {
+        position: absolute;
+        opacity: 0;
+    }
+    .itlRadioGroup>label>span {
+        height: 26px;
+        display: flex;
+        border: 1px solid #e0e0ea;
+        align-items: center;
+        padding: 0 10px;
+        cursor: pointer;
+    }
+    .itlRadioGroup>label:first-child>span {
+        border-radius: 25px 0 0 25px;
+    }
+    .itlRadioGroup>label:last-child>span {
+        border-radius: 0 25px 25px 0;
+    }
+    .itlRadioGroup>label>input:checked+span {
+        background: #fff9f0;
+        color: #f35a38;
+    }
+    .outputContainer {
+        border: 1px solid #e0e0ea;
+        border-radius: 5px;
+        padding: 25px;
+    }
+    .continueBtn {
+        margin-left: 5px;
+        height: 32px;
+        padding: 0 15px;
+        background: #f35a38;
+        color: #fff;
+        font-weight: 600;
+        border: 0 none;
+        border-radius: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    .saveSmallBtn {
+        height: 25px;
+        padding: 0 15px;
+        background: #f35a38;
+        color: #fff;
+        margin-right: 10px;
+        font-weight: 400;
+        border: 0 none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .itlBuilderFooter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 9;
+        background: #272727;
+    }
+    .itlBuilderFooter button {
+        background: #f35a38;
+        border: 0 none;
+        outline: 0 none;
+        display: flex;
+        align-items: center;
+        height: 60px;
+        padding: 0 25px;
+        margin: 0;
+        font-weight: 600;
+        color: #fff;
+        min-width: 120px;
+        justify-content: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 1.4rem;
+    }
+    .itlBuilderFooter .prevBtn {
+        background: #272727;
+    }
+    .outputBtn {
+        height: 26px;
+        display: flex;
+        border: 1px solid #e0e0ea;
+        align-items: center;
+        padding: 0 10px;
+        cursor: pointer;
+        font-size: 0.68rem;
+        border-radius: 5px;
+        margin-top: 5px;
+        background: #fff;
+        outline: 0 none;
+    }
+    .previewContainer {
+        display: flex;
+        width: 100%;
+        margin-top: 25px;
+        max-width: 950px;
+    }
+    .previewForm {
+        flex: 1;
+        background: whitesmoke;
+        padding: 35px;
+        border-radius: 10px;
+    }
+    .properties {
+        width: 300px;
+        padding: 25px;
+        border: 1px solid #f35a38;
+        margin-left: 25px;
+        border-radius: 10px;
+        position: relative;
+    }
+    .properties:before {
+        content: '';
+        position: absolute;
+        left: -21px;
+        top: 50%;
+        border: 10px solid transparent;
+        border-right: 10px solid #f35a38;
+        margin-top: -5px;
+    }
+    .properties:after {
+        content: '';
+        position: absolute;
+        left: -19px;
+        top: 50%;
+        border: 10px solid transparent;
+        border-right: 10px solid #ffffff;
+        margin-top: -5px;
+    }
+    .checkboxListItem {
+        margin-bottom: 15px;
+    }
+    .checkboxListItem>label {
+        display: flex;
+        align-items: center;
+    }
+    .checkboxListItem>label input {
+        margin-right: 5px;
+    }
+    .itlFormCol.setIcon {
+        display: flex;
+        align-items: center;
+    }
+    .itlFormCol.field {
+        flex: 1;
+        padding-right: 15px;
+    }
+    .itlFormCol.setIcon {
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 12px;
+    }
+    .selectedfield .setIcon svg path {
+        fill: #f35a38 !important;
+    }
+    .previewBtn {
+        border: 0 none;
+        background: transparent;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .inputsTableWrap {
+        position: relative;
+        overflow: auto;
+        overflow-x: scroll;
+        overflow-y: visible;
+    }
+    .fixedCol {
+        left: 0;
+        position: -webkit-sticky;
+        position: sticky;
+        background-color: white;
+        width: 180px;
+        min-width: 180px;
+    }
+    .loginContiner {
+        max-width: 370px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .loginBtn {
+        width: 100%;
+        height: 40px;
+        background: #f35a38;
+        color: #fff;
+        font-weight: 600;
+        border: 0 none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .itlFormFieldSectionTitle {
+        font-weight: 806000;
+        font-size: 1rem;
+        border-bottom: 1px solid #f35a38;
+        padding-bottom: 7px;
+        margin-bottom: 15px;
+    }
+    .itlModal {
+        padding: 0;
+        text-align: left;
+        font-size: 0.875rem;
+        max-width: 90%;
+    }
+    .itlModalNew {
+        background: #fff;
+        padding: 42px;
+        border-radius: 10px;
+        min-width: 360px;
+        text-align: center;
+        -webkit-box-shadow: 5px 5px 3px rgb(0 0 0 / 50%);
+        box-shadow: 5px 5px 3px rgb(0 0 0 / 50%);
+        position: relative;
+    }
+    .itlModalHeader {
+        font-weight: 600;
+        font-size: 1rem;
+        border-bottom: 1px solid #f35a38;
+        padding: 12px 15px;
+        margin-bottom: 0;
+    }
+    .itlModalHeaderNew {
+        font-size: 1rem;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+    }
+    span.itlModalClose {
+        font-size: 1.5rem;
+        font-weight: 400;
+        top: -26px;
+        color: #fff;
+    }
+    .itlModalBody {
+        padding: 20px;
+        padding: 20px;
+        max-height: 400px;
+        overflow: auto;
+    }
+    .itlModalFooter .btn {
+        border-radius: 0 0 10px 10px;
+    }
+    .line-item {
+        background-color: bisque;
+    }
+
+    .unsaved-changes:after {
+        content: "";
+        position: relative;
+        display: inline-block; 
+        border-radius: 15px;
+        width: 7px;
+        height: 7px;
+        box-shadow: 0 0 0 3px white;
+        vertical-align: middle;
+        background-color: #de2f1e;
+        margin-left: 7px;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(78, 202, 68, 0.9);
+    }
+    70% {
+        box-shadow: 0 0 0 25px rgba(255, 196, 64, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 196, 64, 0);
+    }
+}
