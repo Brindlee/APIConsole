@@ -18,7 +18,7 @@
 			</template>
 		
 
-		<div v-if="appAction.Entity_c.ID == 0" style="margin-left: 5px; margin-top: 5px;">
+		<!--<div v-if="appAction.Entity_c.ID == 0" style="margin-left: 5px; margin-top: 5px;">
 			<span class="red bold">
 				Note:
 			</span> 
@@ -27,9 +27,7 @@
 		</div>
 
 		<div style="display: flex; align-items: center; padding: 10px 0;">
-			<button @click="findAndSetContainerKey()" class="outputBtn itlFormCol">
-				Auto set container key
-			</button>
+			
 		</div>
 		
 		<div class="itlFormRow inline">
@@ -72,8 +70,6 @@
 			</button>
 		</div>	
 
-		<!--<div class="itlModalHeader orange" style="margin-top: 10px; margin-bottom: 10px; padding: 0; "></div>-->
-
 		<div style="display: flex; align-items: center; padding: 10px 0;">
 			<button class="outputBtn itlFormCol" 
 					style="margin-right: 10px;" 
@@ -98,12 +94,6 @@
 					Save
 				</button>
 			</div>
-			<!--<div class="itlFormCol">
-				<button class="outputBtn itlFormCol"
-						v-on:click="addEmptyOutputField($event)">
-					Add new field
-				</button>
-			</div>-->
 		</div>
 
 		
@@ -155,7 +145,7 @@
 					Apply Changes
 				</button>
 			</div>
-		</div>
+		</div>-->
 	</div>
 </template>
 

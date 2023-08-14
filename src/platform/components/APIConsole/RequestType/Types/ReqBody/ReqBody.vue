@@ -56,11 +56,11 @@
             <!-- </div> -->
             
             <div class="tabPanelTopBarLinks" style="float: right;">
-                <button class="saveSmallBtn"
+                <!--<button class="saveSmallBtn"
                         @click="saveBodyParameteres()"
                         v-if="shouldShowSaveButton">
                     Save
-                </button>
+                </button>-->
                 <!-- <a href="javascript:void(0);">Bulk Edit</a> -->
             </div>
         </div>
@@ -124,10 +124,10 @@
                 </div>
                 <div class="itlFormRow inline" style="justify-content: space-between;">
                     <div class="itlFormInputWrap">
-                        <button class="outputBtn itlFormCol"
+                        <!--<button class="outputBtn itlFormCol"
                                 v-on:click="validateBeforeGeneratingInput($event)">
                             Set as Input
-                        </button>
+                        </button>-->
                     </div>
                     <!-- <div class="itlFormInputWrap">
                         <button class="saveSmallBtn"

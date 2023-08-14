@@ -78,7 +78,7 @@ var appAction = ref({
 	"Description_c": "",
 	"StepDescription_c": "Company created",
 	"Url_c": "https://api.companyhub.com/v1/tables/company",
-	"Method_c": "POST",
+	"Method_c": "GET",
 	"ActionScript_c": "var action = {\n    pre: function (request) {\n        var requestBody;\n        if (request.Body != \"\") {\n            requestBody = __Lib.removeNullOrEmptyFields(JSON.parse(request.Body));\n        } else {\n            requestBody = {};\n        }\n        /*Pre: Injected code begins*/\n        /*Pre: Injected code ends*/\n        return {\n            Body: JSON.stringify(requestBody)\n        };\n    },\n    post: function (response) {\n\n        var result = __Lib.checkError(response);\n        if (result.isErrorFound) {\n            return __Lib.returnError(result, response);\n        }\n        var responseBody = JSON.parse(response.Body);\n        /*Post: Injected code begins*/\n        /*Post: Injected code ends*/\n        return success(JSON.stringify(responseBody));\n    },\n    inputFields: function (actionParamsAsJson, supportsStandardDateFormat) {\n        return __Lib.setCustomFields(actionParamsAsJson, \"\");\n    },\n    outputFields: function (actionParamsAsJson, supportsStandardDateFormat) {\n        return __Lib.setCustomFields(actionParamsAsJson, \"\");\n    }\n};",
 	"IsTestAction_c": false,
 	"IsHidden_c": false,
@@ -500,7 +500,7 @@ var appAction = ref({
 			"deletedParameters": []
 		},
 		"ReqBody": {
-			"SelectedType": "raw",
+			"SelectedType": "none",
 			"SelectedSubType": "JSON",
 			"raw": {
 				"JSON": {

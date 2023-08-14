@@ -1,6 +1,0 @@
-export async function onRequestPost({request, env}) {
-  return new Response("Hello, world!");
-  //console.log('context.Request::', context.Request);
-  //const result = await fetch(context.Request.url, context.Request);
-  //return new Response(result);
-}

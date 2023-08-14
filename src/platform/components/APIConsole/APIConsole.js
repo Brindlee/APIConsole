@@ -331,6 +331,7 @@ export default {
         async makeHttpWebCall(request) {
             await this.setLoadingStatus(true);
             var response = await platformAPI.makeHttpWebCall(request);
+            console.log('resp: ', response);
             let message = '';
             if (response.reasonPhrase) {
                 message = `${response.reasonPhrase}`;
@@ -345,10 +346,12 @@ export default {
 
             if (response.success) {
                 message = `${response.reasonPhrase} - ${response.statusCode}`;
-                this.$store.dispatch("toaster/show", { type: "success", message: message, time: 2500 });
+                //this.$store.dispatch("toaster/show", { type: "success", message: message, time: 2500 });
+                alert('Success with message: '+message);
 
             } else {
-                this.$store.dispatch("toaster/show", { type: "error", message: message, time: 2500 });
+                //this.$store.dispatch("toaster/show", { type: "error", message: message, time: 2500 });
+                alert('Error with message: '+message);
             }
             await this.setResponseActionRequest(response);
             await this.setLoadingStatus(false);
@@ -385,12 +388,13 @@ export default {
         },
 
         inputChanged( event ) {
-            console.log( 'val: ', event.target.value );
-            this.appAction.Url_c = event.target.value;
+            //console.log( 'val: ', event.target.value );
+            //this.appAction.Url_c = event.target.value;
             this.setParameterEdited();
         },
-        dropdownValueChanged() {
+        dropdownValueChanged( event ) {
             this.setParameterEdited();
+            this.appAction.Method_c = event.target.value;
         },
         setParameterEdited() {
             if (!this.appAction.UI_Variables.IsEdited) {
@@ -408,10 +412,31 @@ export default {
 
             let urlParameters = this.appAction.RequestInputData.Params.Url.parameters;
             let urlParams = this.getKeyValuePairObject(urlParameters, false);*/
-
-            /*let headerParameters = this.appAction.RequestInputData.Headers.parameters;
-            let headers = this.getKeyValuePairObject(headerParameters, false);*/
-
+            let headers;
+            if( typeof this.appAction.RequestInputData != 'undefined' &&
+                typeof this.appAction.RequestInputData.Headers != 'undefined' &&
+                typeof this.appAction.RequestInputData.Headers.parameters != 'undefined' ) {
+                let headerParameters = this.appAction.RequestInputData.Headers.parameters;
+                headers = this.getKeyValuePairObject(headerParameters, false);
+            }
+            let bodyParameters = [];
+            let selectedType = '';
+            if( typeof this.appAction.RequestInputData != 'undefined' &&
+                typeof this.appAction.RequestInputData.ReqBody != 'undefined' &&
+                typeof this.appAction.RequestInputData.ReqBody.SelectedType!= 'undefined' ) {
+                    selectedType = this.appAction.RequestInputData.ReqBody.SelectedType;
+                    if (selectedType == this.METHOD_INPUT_PARAMETERS.REQ_BODY.FORM_DATA) {
+                        bodyParameters = this.appAction.RequestInputData.ReqBody[this.METHOD_INPUT_PARAMETERS.REQ_BODY.FORM_DATA].parameters;
+                    }
+        
+                    if (selectedType == this.METHOD_INPUT_PARAMETERS.REQ_BODY.X_WWW_FORM_URL_ENCODED) {
+                        bodyParameters = this.appAction.RequestInputData.ReqBody[this.METHOD_INPUT_PARAMETERS.REQ_BODY.X_WWW_FORM_URL_ENCODED].parameters;
+                    }
+        
+                    if (selectedType == this.METHOD_INPUT_PARAMETERS.REQ_BODY.RAW) {
+                        bodyParameters = this.appAction.RequestInputData.ReqBody[this.METHOD_INPUT_PARAMETERS.REQ_BODY.RAW][this.METHOD_INPUT_PARAMETERS.REQ_BODY_RAW.JSON].parameters;
+                    }
+            }
             /*let bodyParameters = [];
 
             //if (this.appAction.RequestInputData.methodsInputParameter == this.METHOD_INPUT_PARAMETERS.BODY) {
@@ -446,11 +471,19 @@ export default {
                     credentials[parameter.Name] = parameter.Value;
                 }
             }*/
-
+            var opObj = { method : this.appAction.Method_c };
+            if( typeof headers != 'undefined' ) {
+                opObj['headers'] = headers;
+            }
             let request = {
-                action : this.appAction
+                action : this.appAction,
+                options : opObj,
+                selectedBodyType : selectedType,
+                bodyParameters : bodyParameters
             };
+            
             //console.log('request-params: ', request);
+            console.log( 'action: ', this.appAction );
             this.makeHttpWebCall(request);
         },
         async isValidData() {
