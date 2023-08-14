@@ -384,7 +384,9 @@ export default {
             await this.$store.dispatch("platformData/setLoadingStatus", status);
         },
 
-        inputChanged() {
+        inputChanged( event ) {
+            console.log( 'val: ', event.target.value );
+            this.appAction.Url_c = event.target.value;
             this.setParameterEdited();
         },
         dropdownValueChanged() {
@@ -399,6 +401,57 @@ export default {
         //save before http request
         async saveBeforeValidation() {
             await this.saveAllParameteres();
+        },
+        async sendRequest() {
+            /*let queryParameters = this.appAction.RequestInputData.Params.Query.parameters;
+            let queryParams = this.getKeyValuePairObject(queryParameters, false);
+
+            let urlParameters = this.appAction.RequestInputData.Params.Url.parameters;
+            let urlParams = this.getKeyValuePairObject(urlParameters, false);*/
+
+            /*let headerParameters = this.appAction.RequestInputData.Headers.parameters;
+            let headers = this.getKeyValuePairObject(headerParameters, false);*/
+
+            /*let bodyParameters = [];
+
+            //if (this.appAction.RequestInputData.methodsInputParameter == this.METHOD_INPUT_PARAMETERS.BODY) {
+            let selectedType = this.appAction.RequestInputData.ReqBody.SelectedType;
+            if (selectedType == this.METHOD_INPUT_PARAMETERS.REQ_BODY.FORM_DATA) {
+                bodyParameters = this.appAction.RequestInputData.ReqBody[this.METHOD_INPUT_PARAMETERS.REQ_BODY.FORM_DATA].parameters;
+            }
+
+            if (selectedType == this.METHOD_INPUT_PARAMETERS.REQ_BODY.X_WWW_FORM_URL_ENCODED) {
+                bodyParameters = this.appAction.RequestInputData.ReqBody[this.METHOD_INPUT_PARAMETERS.REQ_BODY.X_WWW_FORM_URL_ENCODED].parameters;
+            }
+
+            if (selectedType == this.METHOD_INPUT_PARAMETERS.REQ_BODY.RAW) {
+                bodyParameters = this.appAction.RequestInputData.ReqBody[this.METHOD_INPUT_PARAMETERS.REQ_BODY.RAW][this.METHOD_INPUT_PARAMETERS.REQ_BODY_RAW.JSON].parameters;
+            }
+            //}
+
+            let bodyParams = this.getBodyKeyValuePairObject(bodyParameters);
+
+            let actionParams = Object.assign({}, queryParams, urlParams, bodyParams);
+
+            let credentials = {};
+
+            let useAppAuthentication = this.appAction.RequestInputData[this.METHOD_INPUT_PARAMETERS.AUTHENTICATION].useAppAuthentication;
+            if (useAppAuthentication) {
+                let authorizationParameters = this.app.authVariables.parameters;
+                credentials = this.getKeyValuePairObject(authorizationParameters, true);
+            }
+            if (this.isOAuthType) {
+                for (let i = 0; i < this.app.OAuth.parameters.length; i++) {
+                    let parameter = this.app.OAuth.parameters[i];
+                    credentials[parameter.Name] = parameter.Value;
+                }
+            }*/
+
+            let request = {
+                action : this.appAction
+            };
+            //console.log('request-params: ', request);
+            this.makeHttpWebCall(request);
         },
         async isValidData() {
             if (this.validateActionDetails(this.appAction)) {
@@ -420,6 +473,8 @@ export default {
                     //proceed to save
                     let actionResponse = { proccesedRecord: null, errorsData: [] };
                     if (actionDetails) {
+                        console.log('actionDetails: ', actionDetails);
+                        //action save(create / update) to back-end
                         actionResponse = await this.$store.dispatch("platformData/saveActionDetails", Utils.deepCopyObject(actionDetails));
                     }
 
@@ -433,7 +488,7 @@ export default {
                     }
 
                     await this.saveRequestRawJsonDataIfChanged();
-
+                    //update all action parameters on ui. if no error then make actual call using initializevalidation => makeHttpWebCall
                     this.updateUIVariables(actionResponse, actionVariablesResponse);
                 }
             }

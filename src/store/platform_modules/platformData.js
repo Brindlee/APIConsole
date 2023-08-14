@@ -1,5 +1,5 @@
 ﻿import platformAPI from '@/platform/js/api/platformAPI';
-//import proxyHelper from "@/platform/js/proxyHelper";
+import proxyHelper from "@/platform/js/proxyHelper";
 import Utils from "@/platform/js/Utils";
 //import AppLogoUrl from '@/js/AppLogoUrl';
 
@@ -1200,13 +1200,13 @@ export default {
             };
         },
         async performCreateUpdateDeleteOperationForAction(context, object) {
-            let response = await context.dispatch("performWebAPICall", object.data);
+            let response = await context.dispatch("performWebAPICall", object.data); //get details => create action
             let errorObject = { isError: false, message: '' };
             if (response.Success) {
                 if (object.type == 'Create') {
                     object.record.ID = response.Id;
                     if (object.operationType == 'Action') {
-                        let payload = proxyHelper.getActionById(response.Id);
+                        let payload = proxyHelper.getActionById(response.Id); //get details => get created action details
                         let innerResponse = await context.dispatch("performWebAPICall", payload);
                         if (innerResponse.Success) {
                             object.record.Name = innerResponse.Data.Name;

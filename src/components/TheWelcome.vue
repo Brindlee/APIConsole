@@ -116,19 +116,20 @@
 			</div>
 			<div class="itlFormCol apiURL">
 				<div class="itlFormInputWrap">
-					<input
-						type="text"
-						class="itlFormInput lg"
-						@change="inputChanged($event)"
-						placeholder="ex: https://www.example.com"
-					/>
+					<input type="text" class="itlFormInput lg" v-model="appAction.Url_c" 
+					@change="inputChanged($event)" placeholder="ex: https://www.example.com" />
 				</div>
 			</div>
 			<div class="itlFormCol">
-				<button
+				<!--<button
 					class="sendBtn"
 					v-bind:class="{ 'disabled': shouldDisableSendButton }"
 					v-on:click="saveBeforeValidation()"
+				>Send</button>-->
+				<button
+					class="sendBtn"
+					v-bind:class="{ 'disabled': shouldDisableSendButton }"
+					v-on:click="sendRequest()"
 				>Send</button>
 			</div>
 		</div>

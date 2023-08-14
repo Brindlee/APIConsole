@@ -30,7 +30,9 @@ export default {
     },
 
     async makeHttpWebCall(payload) {
-        var response = await axios.post(`/a/platform/simulate`, payload);
+        //var response = await axios.post(`/a/platform/simulate`, payload);
+        var response = await axios.post(`/api/makeHttpcallout`, payload);
+
         return response.data;
     },
 
